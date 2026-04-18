@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
+const isDev = process.env.NODE_ENV === 'development';
+
 const nextConfig = {
   output: 'export',
   distDir: 'dist',
-  assetPrefix: '/eygpt-travel-guide',
+  assetPrefix: isDev ? '' : '/eygpt-travel-guide',
   images: {
     unoptimized: true
   }
