@@ -1,22 +1,21 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
-import L from 'leaflet';
+import dynamic from 'next/dynamic';
+
+// 动态导入 Leaflet 组件，避免 SSR 问题
+const MapContainer = dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false });
+const TileLayer = dynamic(() => import('react-leaflet').then(mod => mod.TileLayer), { ssr: false });
+const Marker = dynamic(() => import('react-leaflet').then(mod => mod.Marker), { ssr: false });
+const Polyline = dynamic(() => import('react-leaflet').then(mod => mod.Polyline), { ssr: false });
+
 import 'leaflet/dist/leaflet.css';
 
-// 修复 Leaflet 默认图标问题
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-
-let DefaultIcon = L.icon({
-  iconUrl: icon.src || '/marker-icon.png',
-  shadowUrl: iconShadow.src || '/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
+// Leaflet 只在客户端加载
+let L: any = null;
+if (typeof window !== 'undefined') {
+  L = require('leaflet');
+}
 
 interface MapMarker {
   position: [number, number];
@@ -94,7 +93,7 @@ export default function LeafletMap({
         )}
         
         {/* 标记点 - 使用自定义 DivIcon 显示地点名称和天数 */}
-        {Object.entries(EGYPT_CITIES).map(([cityName, data]) => {
+        {L && Object.entries(EGYPT_CITIES).map(([cityName, data]) => {
           const customIcon = L.divIcon({
             className: 'custom-marker',
             html: `
