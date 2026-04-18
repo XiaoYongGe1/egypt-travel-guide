@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const BASE_PATH = '/eygpt-travel-guide';
+const BASE_PATH = '/egypt-travel-guide';
 const DIST_DIR = path.join(__dirname, '../dist');
 
 // 递归查找所有 HTML 文件
@@ -30,13 +30,13 @@ function fixPaths(htmlFile) {
   
   // 修复 href 路径 (排除外部链接和锚点链接)
   content = content.replace(
-    /href="\/(?!\/|eygpt-travel-guide)([^"]*)"/g,
+    /href="\/(?!\/|egypt-travel-guide)([^"]*)"/g,
     `href="${BASE_PATH}/$1"`
   );
   
   // 修复 src 路径 (图片和脚本)
   content = content.replace(
-    /src="\/(?!\/|eygpt-travel-guide)([^"]*)"/g,
+    /src="\/(?!\/|egypt-travel-guide)([^"]*)"/g,
     `src="${BASE_PATH}/$1"`
   );
   

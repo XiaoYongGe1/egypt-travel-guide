@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   distDir: 'dist',
-  assetPrefix: '/eygpt-travel-guide/',
+  assetPrefix: '/egypt-travel-guide/',
   images: {
     unoptimized: true
   }
