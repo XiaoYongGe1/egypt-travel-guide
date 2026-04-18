@@ -1,5 +1,6 @@
 import { egyptHistoryTimeline, culturalAspects, empireRiseAndFall } from '@/data/egyptHistory';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function HistoryPage() {
   return (
@@ -40,9 +41,10 @@ export default function HistoryPage() {
             <div className="section-divider max-w-xs mx-auto mt-6"></div>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-12">
             {egyptHistoryTimeline.map((period, index) => (
               <div key={index} className="magazine-card overflow-hidden">
+                {/* 标题区域 */}
                 <div className="bg-magazine-sand/30 p-6 border-b border-magazine-border">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div>
@@ -53,31 +55,49 @@ export default function HistoryPage() {
                       {period.years}
                     </span>
                   </div>
-                  <p className="mt-4 text-magazine-secondary">{period.description}</p>
                 </div>
-                
-                <div className="p-6 grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-medium text-magazine-text mb-3">重要事件</h4>
-                    <ul className="space-y-2">
-                      {period.keyEvents.map((event, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-magazine-secondary">
-                          <span className="text-magazine-accent mt-1">•</span>
-                          <span>{event}</span>
-                        </li>
-                      ))}
-                    </ul>
+
+                {/* 图片区域 */}
+                {period.image && (
+                  <div className="relative w-full h-64 md:h-80">
+                    <Image
+                      src={period.image}
+                      alt={period.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                  <div>
-                    <h4 className="font-medium text-magazine-text mb-3">主要成就</h4>
-                    <ul className="space-y-2">
-                      {period.achievements.map((achievement, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-magazine-secondary">
-                          <span className="text-magazine-accent mt-1">•</span>
-                          <span>{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
+                )}
+                
+                {/* 描述区域 */}
+                <div className="p-6">
+                  <div className="prose prose-sm max-w-none text-magazine-secondary whitespace-pre-line mb-6">
+                    {period.description}
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-medium text-magazine-text mb-3">重要事件</h4>
+                      <ul className="space-y-2">
+                        {period.keyEvents.map((event, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-magazine-secondary">
+                            <span className="text-magazine-accent mt-1">•</span>
+                            <span>{event}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-magazine-text mb-3">主要成就</h4>
+                      <ul className="space-y-2">
+                        {period.achievements.map((achievement, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-magazine-secondary">
+                            <span className="text-magazine-accent mt-1">•</span>
+                            <span>{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -161,13 +181,13 @@ export default function HistoryPage() {
 
         {/* 历史意义 */}
         <section className="mb-16">
-          <div className="magazine-card p-8 bg-magazine-text text-white">
-            <h2 className="text-2xl font-serif mb-4">历史的启示</h2>
-            <p className="text-white/80 leading-relaxed mb-4">
+          <div className="magazine-card p-8 bg-[#C9A962]">
+            <h2 className="text-2xl font-serif mb-4 text-black">历史的启示</h2>
+            <p className="text-black/80 leading-relaxed mb-4">
               古埃及文明的兴衰给后世留下了深刻的启示。它的兴起证明了地理环境、政治统一、技术创新和文化凝聚力对于文明发展的重要性。
               而它的衰落则警示我们，即使是最辉煌的文明，也可能因为外敌入侵、内部腐败、资源枯竭和文化融合而走向终结。
             </p>
-            <p className="text-white/80 leading-relaxed">
+            <p className="text-black/80 leading-relaxed">
               然而，古埃及文明并未真正消失。它的建筑、艺术、科学成就和宗教思想通过希腊、罗马文明传承下来，
               影响了整个西方文明的发展。今天，当我们站在金字塔前，凝视着那些历经数千年依然庄严的石块时，
               我们不仅是在欣赏古代建筑的奇迹，更是在与那些创造了人类历史上最辉煌文明的古埃及人进行跨越时空的对话。

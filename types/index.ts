@@ -10,7 +10,7 @@ export interface Attraction {
   duration?: string;
   ticketPrice?: string;
   ticketTip?: string;
-  history: string;
+  history?: string;
   visitTips?: string[];
   image?: string;
   artifacts?: Artifact[];

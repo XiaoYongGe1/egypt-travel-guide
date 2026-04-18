@@ -15,6 +15,18 @@ export default function AttractionCard({ attraction }: AttractionCardProps) {
 
   return (
     <div className="space-y-3">
+      {/* 景点图片 */}
+      {attraction.image && (
+        <div className="relative aspect-[16/9] rounded-xl overflow-hidden">
+          <Image
+            src={attraction.image}
+            alt={attraction.name}
+            fill
+            className="object-cover"
+          />
+        </div>
+      )}
+
       {/* 基本信息 - 扁平化展示 */}
       <div className="flex flex-wrap gap-3">
         {attraction.duration && (
@@ -41,31 +53,33 @@ export default function AttractionCard({ attraction }: AttractionCardProps) {
       )}
 
       {/* 历史故事 - 更简洁的折叠面板 */}
-      <div className="border border-magazine-border rounded-xl overflow-hidden">
-        <button
-          onClick={() => setShowHistory(!showHistory)}
-          className="w-full flex items-center justify-between p-4 bg-magazine-sand/30 hover:bg-magazine-sand/50 transition-colors"
-        >
-          <div className="flex items-center gap-3">
-            <span className="text-2xl">📖</span>
-            <span className="font-medium text-magazine-text">历史故事</span>
-          </div>
-          <svg
-            className={`w-5 h-5 text-magazine-accent transform transition-transform duration-300 ${showHistory ? 'rotate-180' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+      {attraction.history && (
+        <div className="border border-magazine-border rounded-xl overflow-hidden">
+          <button
+            onClick={() => setShowHistory(!showHistory)}
+            className="w-full flex items-center justify-between p-4 bg-magazine-sand/30 hover:bg-magazine-sand/50 transition-colors"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        
-        {showHistory && (
-          <div className="p-4 bg-magazine-bg text-sm leading-relaxed text-magazine-secondary whitespace-pre-line border-t border-magazine-border">
-            {attraction.history}
-          </div>
-        )}
-      </div>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">📖</span>
+              <span className="font-medium text-magazine-text">历史故事</span>
+            </div>
+            <svg
+              className={`w-5 h-5 text-magazine-accent transform transition-transform duration-300 ${showHistory ? 'rotate-180' : ''}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          
+          {showHistory && (
+            <div className="p-4 bg-magazine-bg text-sm leading-relaxed text-magazine-secondary whitespace-pre-line border-t border-magazine-border">
+              {attraction.history}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* 子景点 - 如马特鲁海滩群 */}
       {attraction.subAttractions && attraction.subAttractions.length > 0 && (

@@ -21,6 +21,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
 interface MapMarker {
   position: [number, number];
   title: string;
+  days?: string;
 }
 
 interface LeafletMapProps {
@@ -30,24 +31,20 @@ interface LeafletMapProps {
   showRoute?: boolean;
 }
 
-// 埃及主要城市坐标
-const EGYPT_CITIES: Record<string, [number, number]> = {
-  '开罗': [30.0444, 31.2357],
-  '吉萨': [29.9870, 31.2118],
-  '马特鲁': [31.3500, 27.2333],
-  '亚历山大': [31.2001, 29.9187],
-  '卢克索': [25.6872, 32.6396],
-  '阿斯旺': [24.0889, 32.8998],
-  '赫尔格达': [27.2579, 33.8116],
-  '沙姆沙伊赫': [27.9158, 34.3299],
+// 埃及主要城市坐标和天数信息
+const EGYPT_CITIES: Record<string, { coords: [number, number]; days: string }> = {
+  '开罗': { coords: [30.0444, 31.2357], days: 'Day 1 & Day 3' },
+  '马特鲁': { coords: [31.3500, 27.2333], days: 'Day 2' },
+  '卢克索': { coords: [25.6872, 32.6396], days: 'Day 4-5' },
+  '赫尔格达': { coords: [27.2579, 33.8116], days: 'Day 6-8' },
 };
 
 // 行程路线顺序
 const ROUTE_ORDER = ['开罗', '马特鲁', '开罗', '卢克索', '赫尔格达'];
 
 export default function LeafletMap({ 
-  center = [26.5, 30.5], 
-  zoom = 6,
+  center = [28.5, 31.0], 
+  zoom = 5,
   markers = [],
   showRoute = true
 }: LeafletMapProps) {
@@ -66,8 +63,8 @@ export default function LeafletMap({
   }
 
   // 构建路线坐标
-  const routePositions = showRoute 
-    ? ROUTE_ORDER.map(city => EGYPT_CITIES[city]).filter(Boolean) as [number, number][]
+  const routePositions: [number, number][] = showRoute 
+    ? ROUTE_ORDER.map(city => EGYPT_CITIES[city]?.coords).filter((coords): coords is [number, number] => !!coords)
     : [];
 
   return (
@@ -96,16 +93,39 @@ export default function LeafletMap({
           />
         )}
         
-        {/* 标记点 */}
-        {markers.map((marker, index) => (
-          <Marker key={index} position={marker.position}>
-            <Popup>
-              <div className="text-magazine-text font-medium">
-                {marker.title}
+        {/* 标记点 - 使用自定义 DivIcon 显示地点名称和天数 */}
+        {Object.entries(EGYPT_CITIES).map(([cityName, data]) => {
+          const customIcon = L.divIcon({
+            className: 'custom-marker',
+            html: `
+              <div style="
+                background: #1A1A1A;
+                color: white;
+                padding: 6px 10px;
+                border-radius: 4px;
+                font-size: 12px;
+                font-weight: 500;
+                white-space: nowrap;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+                text-align: center;
+                line-height: 1.3;
+              ">
+                <div>${cityName}</div>
+                <div style="font-size: 10px; color: #C9A962;">${data.days}</div>
               </div>
-            </Popup>
-          </Marker>
-        ))}
+            `,
+            iconSize: [80, 40],
+            iconAnchor: [40, 20],
+          });
+          
+          return (
+            <Marker 
+              key={cityName} 
+              position={data.coords}
+              icon={customIcon}
+            />
+          );
+        })}
       </MapContainer>
     </div>
   );

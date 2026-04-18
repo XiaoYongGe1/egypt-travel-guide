@@ -10,7 +10,7 @@ export default function TipBox({ tip }: TipBoxProps) {
       className={`p-4 rounded-lg border-l-4 ${
         tip.important
           ? 'bg-red-50 border-red-500'
-          : 'bg-magazine-sand/50 border-magazine-accent'
+          : 'bg-amber-50 border-amber-400'
       }`}
     >
       <div className="flex items-start space-x-2">

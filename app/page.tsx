@@ -50,7 +50,7 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
-        
+
         {/* 内容 */}
         <div className="relative container mx-auto px-6 text-white">
           <div className="max-w-3xl">
@@ -101,7 +101,7 @@ export default function Home() {
           </div>
           
           <LeafletMap 
-            center={[26.5, 30.5]}
+            center={[28.5, 31.0]}
             zoom={6}
             markers={mapMarkers}
             showRoute={true}
@@ -156,7 +156,7 @@ export default function Home() {
               { name: '吉萨金字塔', image: '/images/pyramids.jpg', desc: '古代世界七大奇迹' },
               { name: '狮身人面像', image: '/images/sphinx.jpg', desc: '守护金字塔的神秘巨像' },
               { name: '大埃及博物馆', image: '/images/egypt-museum.jpg', desc: '世界最大考古博物馆' },
-              { name: '卢克索神庙', image: '/images/luxor.jpg', desc: '古埃及宗教圣地' },
+              { name: '帝王谷', image: '/images/valley-of-kings.jpg', desc: '法老永恒安息之地' },
             ].map((spot, index) => (
               <div key={index} className="group cursor-pointer">
                 <div className="image-container aspect-[4/3] mb-4 bg-magazine-sand">

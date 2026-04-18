@@ -7,7 +7,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-egypt-blue text-white shadow-lg sticky top-0 z-50">
+    <header className="bg-egypt-blue text-white shadow-lg sticky top-0 z-50" style={{ zIndex: 10000 }}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <Link href="/" className="flex items-center space-x-2">
@@ -25,6 +25,9 @@ export default function Header() {
             </Link>
             <Link href="/#overview" className="hover:text-egypt-gold transition-colors">
               行程概览
+            </Link>
+            <Link href="/history" className="hover:text-egypt-gold transition-colors">
+              历史
             </Link>
             <Link href="/#tips" className="hover:text-egypt-gold transition-colors">
               注意事项
@@ -62,6 +65,13 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               行程概览
+            </Link>
+            <Link
+              href="/history"
+              className="block py-2 hover:text-egypt-gold transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              历史
             </Link>
             <Link
               href="/#tips"
