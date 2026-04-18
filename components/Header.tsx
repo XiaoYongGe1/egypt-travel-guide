@@ -23,14 +23,8 @@ export default function Header() {
             <Link href="/" className="hover:text-egypt-gold transition-colors">
               首页
             </Link>
-            <Link href="/#overview" className="hover:text-egypt-gold transition-colors">
-              行程概览
-            </Link>
             <Link href="/history" className="hover:text-egypt-gold transition-colors">
               历史
-            </Link>
-            <Link href="/#tips" className="hover:text-egypt-gold transition-colors">
-              注意事项
             </Link>
           </nav>
 
@@ -60,25 +54,11 @@ export default function Header() {
               首页
             </Link>
             <Link
-              href="/#overview"
-              className="block py-2 hover:text-egypt-gold transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              行程概览
-            </Link>
-            <Link
               href="/history"
               className="block py-2 hover:text-egypt-gold transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               历史
-            </Link>
-            <Link
-              href="/#tips"
-              className="block py-2 hover:text-egypt-gold transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              注意事项
             </Link>
           </nav>
         )}
