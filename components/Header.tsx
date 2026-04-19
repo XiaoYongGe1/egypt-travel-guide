@@ -26,6 +26,9 @@ export default function Header() {
             <Link href="/history" className="hover:text-egypt-gold transition-colors">
               历史
             </Link>
+            <Link href="/video" className="hover:text-egypt-gold transition-colors">
+              视频
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -59,6 +62,13 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               历史
+            </Link>
+            <Link
+              href="/video"
+              className="block py-2 hover:text-egypt-gold transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              视频
             </Link>
           </nav>
         )}

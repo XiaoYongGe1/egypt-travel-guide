@@ -143,33 +143,134 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 精选景点 - 大图展示 */}
+      {/* 历史探索 - 预览Section */}
       <section className="py-20 px-6 bg-magazine-sand">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <p className="text-caption mb-3">Highlights</p>
-            <h2 className="text-4xl font-serif text-magazine-text">精选景点</h2>
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <p className="text-caption mb-3">History</p>
+              <h2 className="text-4xl font-serif text-magazine-text">历史探索</h2>
+            </div>
+            <Link 
+              href="/history" 
+              className="text-sm text-magazine-accent hover:underline flex items-center gap-1"
+            >
+              查看更多
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { name: '吉萨金字塔', image: '/images/pyramids.jpg', desc: '古代世界七大奇迹' },
-              { name: '狮身人面像', image: '/images/sphinx.jpg', desc: '守护金字塔的神秘巨像' },
-              { name: '大埃及博物馆', image: '/images/egypt-museum.jpg', desc: '世界最大考古博物馆' },
-              { name: '帝王谷', image: '/images/valley-of-kings.jpg', desc: '法老永恒安息之地' },
-            ].map((spot, index) => (
-              <div key={index} className="group cursor-pointer">
-                <div className="image-container aspect-[4/3] mb-4 bg-magazine-sand">
-                  <Image
-                    src={spot.image}
-                    alt={spot.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-serif text-magazine-text mb-1">{spot.name}</h3>
-                <p className="text-sm text-magazine-secondary">{spot.desc}</p>
+              { 
+                title: '古埃及文明起源', 
+                period: '公元前3100年',
+                desc: '从美尼斯统一上下埃及开始，古埃及文明延续了三千年，创造了辉煌的金字塔、神庙和文字系统。',
+                icon: '🏛️'
+              },
+              { 
+                title: '法老与神权统治', 
+                period: '古王国-新王国',
+                desc: '法老被视为神的化身，统治着这片神圣的土地。从胡夫到拉美西斯，伟大的法老们留下了永恒的遗产。',
+                icon: '👑'
+              },
+              { 
+                title: '托勒密王朝与终结', 
+                period: '公元前305-30年',
+                desc: '亚历山大大帝征服后，希腊文化与埃及传统融合。克利奥帕特拉七世是最后一位法老，标志着古埃及时代的终结。',
+                icon: '📜'
+              },
+            ].map((item, index) => (
+              <div key={index} className="magazine-card p-6 group hover:shadow-lg transition-shadow">
+                <span className="text-4xl mb-4 block">{item.icon}</span>
+                <p className="text-xs text-magazine-accent tracking-wider uppercase mb-2">{item.period}</p>
+                <h3 className="text-xl font-serif text-magazine-text mb-3">{item.title}</h3>
+                <p className="text-sm text-magazine-secondary leading-relaxed">{item.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 视频推荐 - 预览Section */}
+      <section className="py-20 px-6 bg-magazine-card">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <p className="text-caption mb-3">Videos</p>
+              <h2 className="text-4xl font-serif text-magazine-text">视频推荐</h2>
+            </div>
+            <Link 
+              href="/video" 
+              className="text-sm text-magazine-accent hover:underline flex items-center gap-1"
+            >
+              查看更多
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { 
+                title: 'AAAAA大埃及博物馆全攻略', 
+                category: '攻略',
+                thumbnail: 'https://img.youtube.com/vi/eTlt-UmQqPQ/hqdefault.jpg',
+                desc: '详细的大埃及博物馆参观攻略，包括必看展品、参观路线、门票信息等实用内容。'
+              },
+              { 
+                title: '一口气看完古埃及历史', 
+                category: '历史',
+                thumbnail: 'https://img.youtube.com/vi/-wLf11wI6wk/hqdefault.jpg',
+                desc: '由周侃侃plus制作的古埃及历史科普合集，系统性地讲解古埃及五千年文明史。'
+              },
+              { 
+                title: '花儿与少年·埃及之旅', 
+                category: '综艺',
+                thumbnail: 'https://img.youtube.com/vi/DVStF5_FO7k/hqdefault.jpg',
+                desc: '花儿与少年丝路季埃及篇，跟随明星团一起探索金字塔、尼罗河的神秘魅力。'
+              },
+            ].map((video, index) => (
+              <Link 
+                key={index} 
+                href="/video"
+                className="magazine-card overflow-hidden group hover:shadow-lg transition-shadow"
+              >
+                <div className="relative aspect-video bg-magazine-sand overflow-hidden">
+                  <img
+                    src={video.thumbnail}
+                    alt={video.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {/* Play Button Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
+                    <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <svg className="w-6 h-6 text-magazine-text ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  {/* Category Badge */}
+                  <span className={`absolute top-2 left-2 px-2 py-0.5 rounded text-xs font-medium ${
+                    video.category === '攻略' ? 'bg-emerald-100 text-emerald-800' :
+                    video.category === '历史' ? 'bg-amber-100 text-amber-800' :
+                    'bg-purple-100 text-purple-800'
+                  }`}>
+                    {video.category}
+                  </span>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-serif text-lg text-magazine-text mb-2 line-clamp-1 group-hover:text-magazine-accent transition-colors">
+                    {video.title}
+                  </h3>
+                  <p className="text-sm text-magazine-secondary line-clamp-2">
+                    {video.desc}
+                  </p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

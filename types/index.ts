@@ -30,6 +30,11 @@ export interface Restaurant {
   priceRange?: string;
   description: string;
   recommendation?: string;
+  address?: string;
+  hours?: string;
+  signatureDishes?: string[];
+  tips?: string;
+  reservation?: string;
 }
 
 export interface Tip {
@@ -51,12 +56,23 @@ export interface Expense {
   note?: string;
 }
 
+export interface HotelInfo {
+  name: string;
+  description?: string;
+  amenities?: string[];
+  tips?: string[];
+  nearbyAttractions?: string[];
+  nearbyRestaurants?: string[];
+  bookingNote?: string;
+}
+
 export interface DaySchedule {
   day: number;
   date: string;
   location: string;
   hotel?: string;
   hotelNote?: string;
+  hotelInfo?: HotelInfo;
   schedule: {
     time: string;
     activity: string;

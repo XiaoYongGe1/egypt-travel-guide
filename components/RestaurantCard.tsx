@@ -8,29 +8,73 @@ export default function RestaurantCard({ restaurant }: RestaurantCardProps) {
   return (
     <div className="magazine-card overflow-hidden">
       <div className="bg-magazine-sand/50 p-4">
-        <div className="flex items-center space-x-2">
-          <span className="text-2xl">🍽️</span>
-          <div>
+        <div className="flex items-start space-x-3">
+          <span className="text-2xl flex-shrink-0">🍽️</span>
+          <div className="flex-1 min-w-0">
             <h4 className="text-lg font-serif text-magazine-text">{restaurant.name}</h4>
-            {restaurant.cuisine && (
-              <p className="text-sm text-magazine-secondary">{restaurant.cuisine}</p>
-            )}
+            <div className="flex flex-wrap items-center gap-2 mt-1">
+              {restaurant.cuisine && (
+                <span className="text-sm text-magazine-secondary">{restaurant.cuisine}</span>
+              )}
+              {restaurant.priceRange && (
+                <span className="text-sm text-magazine-accent font-medium">
+                  · {restaurant.priceRange}
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="p-4">
-        <p className="text-sm text-magazine-secondary">{restaurant.description}</p>
+      <div className="p-4 space-y-3">
+        <p className="text-sm text-magazine-secondary leading-relaxed">{restaurant.description}</p>
         
-        {restaurant.priceRange && (
-          <p className="text-sm mt-2">
-            <span className="font-medium text-magazine-accent">人均:</span> {restaurant.priceRange}
+        {restaurant.signatureDishes && restaurant.signatureDishes.length > 0 && (
+          <div>
+            <p className="text-sm font-medium text-magazine-text mb-1">招牌菜:</p>
+            <div className="flex flex-wrap gap-1">
+              {restaurant.signatureDishes.map((dish, index) => (
+                <span 
+                  key={index} 
+                  className="text-xs bg-magazine-sand/70 text-magazine-text px-2 py-1 rounded"
+                >
+                  {dish}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+          {restaurant.address && (
+            <div className="flex items-start space-x-1">
+              <span className="text-magazine-accent flex-shrink-0">📍</span>
+              <span className="text-magazine-secondary">{restaurant.address}</span>
+            </div>
+          )}
+          {restaurant.hours && (
+            <div className="flex items-start space-x-1">
+              <span className="text-magazine-accent flex-shrink-0">🕐</span>
+              <span className="text-magazine-secondary">{restaurant.hours}</span>
+            </div>
+          )}
+        </div>
+        
+        {restaurant.recommendation && (
+          <p className="text-sm text-magazine-text bg-magazine-sand/30 p-2 rounded">
+            <span className="font-medium">💡 推荐:</span> {restaurant.recommendation}
           </p>
         )}
         
-        {restaurant.recommendation && (
-          <p className="text-sm mt-2 text-magazine-text">
-            <span className="font-medium">推荐:</span> {restaurant.recommendation}
+        {restaurant.tips && (
+          <p className="text-sm text-magazine-secondary">
+            <span className="font-medium text-magazine-accent">Tips:</span> {restaurant.tips}
+          </p>
+        )}
+        
+        {restaurant.reservation && (
+          <p className="text-sm text-magazine-secondary">
+            <span className="font-medium text-magazine-accent">预订:</span> {restaurant.reservation}
           </p>
         )}
       </div>

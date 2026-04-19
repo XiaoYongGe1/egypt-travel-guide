@@ -9,6 +9,29 @@ export const itineraryData: ItineraryData = {
       date: "2026.4.28",
       location: "开罗 → 马特鲁",
       hotel: "Hostmark Blue Beach Hotel",
+      hotelInfo: {
+        name: "Hostmark Blue Beach Hotel",
+        description: "位于马特鲁港海边的四星级度假酒店，拥有私人海滩和地中海绝美海景。酒店设计现代简约，大部分房间都配有海景阳台，让您在房间内就能欣赏到马特鲁著名的蓝绿色海水。",
+        amenities: ["私人海滩", "室外泳池", "海景餐厅", "免费WiFi", "空调房间", "24小时前台"],
+        tips: [
+          "建议选择海景房，价格稍贵但景色值得",
+          "酒店早餐包含在房费中，种类丰富",
+          "私人海滩人少安静，适合看日出",
+          "酒店距离Cleopatra Beach约10分钟车程"
+        ],
+        nearbyAttractions: [
+          "Cleopatra Beach - 10分钟车程",
+          "Lover's Beach - 12分钟车程",
+          "Sea Eye - 15分钟车程",
+          "马特鲁市中心 - 5分钟车程"
+        ],
+        nearbyRestaurants: [
+          "酒店海景餐厅 - 海鲜和西餐",
+          "Magdy Seafood - 当地海鲜餐厅，距离酒店5分钟",
+          "Albaida Restaurant - 埃及菜，当地人推荐"
+        ],
+        bookingNote: "旺季(夏季)需提前预订，可通过Booking.com或酒店官网预订"
+      },
       schedule: [
         {
           time: "06:35",
@@ -69,9 +92,37 @@ export const itineraryData: ItineraryData = {
       restaurants: [
         {
           name: "Khufu's Restaurant",
-          cuisine: "埃及菜",
-          description: "金字塔观景位餐厅,可以边用餐边欣赏金字塔壮观景色",
-          recommendation: "推荐靠窗位置,提前预订"
+          cuisine: "埃及菜/国际美食",
+          priceRange: "300-500 EGP",
+          description: "位于金字塔景区内的观景餐厅，拥有绝佳的金字塔全景视野。餐厅采用现代埃及风格装修，落地窗设计让您在用餐时就能欣赏到胡夫金字塔的壮丽景色。",
+          recommendation: "日落时分用餐最美，金字塔在夕阳下呈现金色光芒",
+          address: "吉萨金字塔景区内，靠近北门",
+          hours: "08:00 - 22:00",
+          signatureDishes: ["烤鸽子", "库莎丽", "埃及烤肉拼盘", "薄荷茶"],
+          tips: "建议提前预订窗边位置，午餐时段游客较多",
+          reservation: "可通过酒店 concierge 或电话预订"
+        },
+        {
+          name: "Felfela",
+          cuisine: "传统埃及菜",
+          priceRange: "150-250 EGP",
+          description: "开罗最著名的传统埃及餐厅之一，已有超过50年历史。餐厅装饰充满埃及风情，墙上挂满了老照片和手工艺品，让您在品尝美食的同时感受浓郁的当地文化氛围。",
+          recommendation: "当地人推荐的正宗埃及菜，价格实惠",
+          address: "15 El Haram St, Giza",
+          hours: "10:00 - 23:00",
+          signatureDishes: ["Foul Medames(炖蚕豆)", "Taameya(埃及炸豆饼)", "烤羊肉", "库莎丽"],
+          tips: "适合早餐或午餐，口味偏传统，可能不太适合不习惯中东香料的食客"
+        },
+        {
+          name: "Andrea El Mariouteya",
+          cuisine: "埃及烤肉",
+          priceRange: "200-400 EGP",
+          description: "开罗著名的烤肉餐厅，以烤鸽子和烤鸡闻名。餐厅位于吉萨区，环境宽敞，有室内和室外座位。烤肉采用传统炭火烤制，香气四溢。",
+          recommendation: "烤鸽子是必点招牌菜，肉质鲜嫩多汁",
+          address: "Mariouteya Canal Rd, Giza",
+          hours: "12:00 - 00:00",
+          signatureDishes: ["烤鸽子", "烤鸡", "羊肉串", "烤茄子"],
+          tips: "分量较大，建议少点一些，不够再加"
         }
       ],
       tips: [
@@ -109,8 +160,31 @@ export const itineraryData: ItineraryData = {
       day: 2,
       date: "2026.4.29",
       location: "马特鲁 → 开罗",
-      hotel: "Khan DuiDar Inn - Pyramids View Rooftop",
+      hotel: "JAZ Pyramids Resort",
       hotelNote: "住吉萨区,第二天去大埃及博物馆方便",
+      hotelInfo: {
+        name: "JAZ Pyramids Resort",
+        description: "位于吉萨金字塔区的度假酒店，距离大埃及博物馆仅15分钟车程。酒店拥有金字塔景观房，部分房间可直接看到远处的金字塔。设施完善，是游览开罗景点的理想住宿选择。",
+        amenities: ["金字塔景观房", "室外泳池", "健身房", "餐厅", "免费WiFi", "机场接送"],
+        tips: [
+          "选择金字塔景观房可以在房间内看金字塔",
+          "酒店提供前往博物馆的班车服务",
+          "距离机场约45分钟车程",
+          "周边有便利店和换汇点"
+        ],
+        nearbyAttractions: [
+          "大埃及博物馆 - 15分钟车程",
+          "吉萨金字塔 - 10分钟车程",
+          "萨拉丁城堡 - 30分钟车程",
+          "哈利利市集 - 35分钟车程"
+        ],
+        nearbyRestaurants: [
+          "酒店餐厅 - 国际美食",
+          "Felfela - 传统埃及菜，15分钟车程",
+          "Andrea El Mariouteya - 烤肉，20分钟车程"
+        ],
+        bookingNote: "建议预订含早餐的房型，方便早起参观博物馆"
+      },
       schedule: [
         {
           time: "10:00 - 14:00",
@@ -203,7 +277,41 @@ export const itineraryData: ItineraryData = {
           activity: "返回开罗(5小时车程),入住酒店休息"
         }
       ],
-      restaurants: [],
+      restaurants: [
+        {
+          name: "Magdy Seafood",
+          cuisine: "海鲜/埃及菜",
+          priceRange: "200-400 EGP",
+          description: "马特鲁当地最受欢迎的海鲜餐厅，位于海边，可以一边享用新鲜海鲜一边欣赏地中海美景。餐厅以当天捕捞的海鲜为特色，保证食材新鲜。",
+          recommendation: "烤鱼和海鲜汤是招牌，分量足味道鲜",
+          address: "马特鲁港海滨大道",
+          hours: "11:00 - 23:00",
+          signatureDishes: ["烤海鲈鱼", "海鲜汤", "炸鱿鱼圈", "烤虾"],
+          tips: "午餐时段人较多，建议12点前或14点后去"
+        },
+        {
+          name: "Albaida Restaurant",
+          cuisine: "埃及菜/地中海菜",
+          priceRange: "150-300 EGP",
+          description: "当地人推荐的餐厅，环境简洁但食物地道。以传统的埃及家常菜为主，价格实惠，是体验当地饮食文化的不错选择。",
+          recommendation: "当地人常去的餐厅，口味正宗",
+          address: "马特鲁市中心",
+          hours: "10:00 - 22:00",
+          signatureDishes: ["库莎丽", "烤鸡", "鹰嘴豆泥", "皮塔饼"],
+          tips: "服务员英语有限，可以指着菜单点菜"
+        },
+        {
+          name: "酒店海景餐厅",
+          cuisine: "国际美食/海鲜",
+          priceRange: "250-500 EGP",
+          description: "Hostmark Blue Beach Hotel的餐厅，拥有绝佳的海景视野。提供西式早餐、午餐和晚餐，也有当地海鲜料理。",
+          recommendation: "早餐丰富，晚餐可以欣赏日落",
+          address: "Hostmark Blue Beach Hotel内",
+          hours: "07:00 - 22:00",
+          signatureDishes: ["海鲜意面", "烤三文鱼", "埃及早餐拼盘"],
+          tips: "房费包含早餐，晚餐建议提前预订靠窗位置"
+        }
+      ],
       tips: [
         {
           category: "海滩",
@@ -228,8 +336,30 @@ export const itineraryData: ItineraryData = {
       day: 3,
       date: "2026.4.30",
       location: "开罗 → 卢克索",
-      hotel: "Steigenberger Resort Achti",
-      hotelNote: "备选:Iberotel Luxor",
+      hotel: "Iberotel Luxor",
+      hotelInfo: {
+        name: "Iberotel Luxor",
+        description: "位于卢克索尼罗河东岸的豪华酒店，拥有绝佳的河景位置。酒店设计融合了现代舒适与埃及传统元素，大部分房间都配有尼罗河景观阳台。地理位置优越，步行即可到达卢克索神庙和卡纳克神庙。",
+        amenities: ["尼罗河景观", "室外泳池", "SPA中心", "健身房", "河景餐厅", "免费WiFi", "24小时前台"],
+        tips: [
+          "强烈推荐预订尼罗河景观房，景色绝美",
+          "酒店提供前往西岸的帆船服务",
+          "屋顶餐厅是观赏日落的最佳位置",
+          "步行到卢克索神庙约15分钟"
+        ],
+        nearbyAttractions: [
+          "卢克索神庙 - 步行15分钟",
+          "卡纳克神庙 - 车程10分钟",
+          "卢克索博物馆 - 步行10分钟",
+          "El Souk集市 - 步行5分钟"
+        ],
+        nearbyRestaurants: [
+          "酒店河景餐厅 - 国际美食",
+          "El-Kababgy - 烤肉，步行10分钟",
+          "1886 Restaurant - 法餐，步行8分钟"
+        ],
+        bookingNote: "尼罗河景观房很抢手，建议提前1-2个月预订"
+      },
       schedule: [
         {
           time: "09:00 - 12:00",
@@ -345,7 +475,42 @@ export const itineraryData: ItineraryData = {
           activity: "开罗飞往卢克索"
         }
       ],
-      restaurants: [],
+      restaurants: [
+        {
+          name: "Naguib Mahfouz Cafe",
+          cuisine: "埃及菜/咖啡",
+          priceRange: "100-200 EGP",
+          description: "位于汗哈利利市集内的传奇咖啡馆，以诺贝尔文学奖得主纳吉布·马哈福兹命名。咖啡馆保留了传统的阿拉伯风格装饰，是体验开罗咖啡文化的绝佳去处。",
+          recommendation: "薄荷茶和阿拉伯咖啡是必试，环境很有情调",
+          address: "Khan el-Khalili, El-Gamaleya, Cairo",
+          hours: "09:00 - 23:00",
+          signatureDishes: ["薄荷茶", "阿拉伯咖啡", "水烟", "坚果拼盘"],
+          tips: "逛完市集后来这里休息，水烟可以体验但不建议多抽"
+        },
+        {
+          name: "Abou Tarek",
+          cuisine: "埃及快餐",
+          priceRange: "50-100 EGP",
+          description: "开罗最著名的库莎丽(Koshary)专门店，已有70多年历史。库莎丽是埃及的国菜，由米饭、通心粉、扁豆、鹰嘴豆和炸洋葱混合而成，淋上特制的番茄酱。",
+          recommendation: "埃及国民美食，价格便宜分量足",
+          address: "16 Maarouf St, Downtown Cairo",
+          hours: "10:00 - 23:00",
+          signatureDishes: ["库莎丽(大/中/小)", "米饭布丁", "鲜榨果汁"],
+          tips: "适合快速解决一餐，素食者友好"
+        },
+        {
+          name: "Sequoia",
+          cuisine: "地中海菜/黎巴嫩菜",
+          priceRange: "400-800 EGP",
+          description: "位于扎马雷克区(Zamalek)的高档餐厅，坐落在尼罗河畔，环境优雅。餐厅采用露天设计，夜晚灯光璀璨，是开罗最受欢迎的约会餐厅之一。",
+          recommendation: "尼罗河景观绝佳，适合晚餐",
+          address: "53 Abou El Feda St, Zamalek, Cairo",
+          hours: "13:00 - 01:00",
+          signatureDishes: ["黎巴嫩烤肉拼盘", "鹰嘴豆泥", "塔布勒沙拉", "葡萄叶包饭"],
+          tips: "需要提前预订，尤其是周末晚餐时段",
+          reservation: "电话预订或通过网络预订"
+        }
+      ],
       tips: [
         {
           category: "交通",
@@ -469,9 +634,49 @@ export const itineraryData: ItineraryData = {
       ],
       restaurants: [
         {
+          name: "El-Kababgy",
+          cuisine: "埃及烤肉/中东菜",
+          priceRange: "200-400 EGP",
+          description: "卢克索最著名的烤肉餐厅之一，位于尼罗河畔，拥有绝佳的河景。餐厅以传统的埃及和中东烤肉闻名，使用炭火烤制，香气四溢。环境宽敞，有室内和室外座位。",
+          recommendation: "烤羊肉和烤鸡是招牌，肉质鲜嫩多汁",
+          address: "El-Nil St, Luxor (尼罗河畔)",
+          hours: "12:00 - 23:00",
+          signatureDishes: ["烤羊肉串", "烤全鸡", "烤鸽子", "塔希尼酱", "皮塔饼"],
+          tips: "晚餐时段建议提前预订河景位，可以看到尼罗河夜景"
+        },
+        {
+          name: "1886 Restaurant",
+          cuisine: "法式料理/国际美食",
+          priceRange: "500-1000 EGP",
+          description: "位于卢克索索菲特冬宫酒店内的顶级餐厅，以酒店建成的1886年命名。餐厅装饰典雅，充满殖民时期的复古风情，是卢克索最高档的餐厅之一。",
+          recommendation: "适合特殊场合的精致晚餐",
+          address: "Sofitel Winter Palace Luxor内",
+          hours: "19:00 - 23:00",
+          signatureDishes: ["法式鸭胸", "牛排", "海鲜拼盘", "精致甜点"],
+          tips: "需要着正装，建议提前预订",
+          reservation: "通过酒店前台或电话预订"
+        },
+        {
           name: "El Souk集市小吃",
-          cuisine: "当地小吃",
-          description: "卢克索当地集市,可以品尝各种埃及传统小吃"
+          cuisine: "埃及街头小吃",
+          priceRange: "20-80 EGP",
+          description: "卢克索当地集市内的各种小吃摊位，是体验地道埃及街头美食的最佳去处。从烤玉米到炸豆饼，从鲜榨果汁到传统甜点，应有尽有。",
+          recommendation: "最地道的当地美食体验，价格便宜",
+          address: "Luxor Souk (卢克索集市)",
+          hours: "09:00 - 22:00",
+          signatureDishes: ["烤玉米", "炸豆饼(Taameya)", "烤鸡肉串", "甘蔗汁", "巴克拉瓦"],
+          tips: "注意食品卫生，选择人多的摊位，肠胃敏感者慎食"
+        },
+        {
+          name: "Aisha Restaurant",
+          cuisine: "努比亚菜/埃及菜",
+          priceRange: "150-300 EGP",
+          description: "位于卢克索西岸的小型家庭餐厅，以传统的努比亚风味菜肴闻名。餐厅由当地家庭经营，环境简朴但食物地道，可以品尝到独特的努比亚香料风味。",
+          recommendation: "想尝试不同风味的好选择",
+          address: "西岸，靠近渡口",
+          hours: "11:00 - 21:00",
+          signatureDishes: ["努比亚炖菜", "香料烤鸡", "秋葵汤", "手工面包"],
+          tips: "位置不太好找，可以让酒店帮忙叫车"
         }
       ],
       tips: [
@@ -601,8 +806,47 @@ KV5是帝王谷中最大的陵墓,拥有超过120个墓室,是拉美西斯二世
       restaurants: [
         {
           name: "El-Kababgy",
-          cuisine: "埃及烤肉",
-          description: "卢克索知名烤肉餐厅,当地人和游客都推荐"
+          cuisine: "埃及烤肉/中东菜",
+          priceRange: "200-400 EGP",
+          description: "卢克索最著名的烤肉餐厅之一，位于尼罗河畔，拥有绝佳的河景。餐厅以传统的埃及和中东烤肉闻名，使用炭火烤制，香气四溢。",
+          recommendation: "烤羊肉串和烤鸡是招牌，肉质鲜嫩",
+          address: "El-Nil St, Luxor (尼罗河畔)",
+          hours: "12:00 - 23:00",
+          signatureDishes: ["烤羊肉串", "烤全鸡", "烤鸽子", "塔希尼酱"],
+          tips: "晚餐时段建议提前预订河景位"
+        },
+        {
+          name: "Al-Sahaby Lane",
+          cuisine: "埃及菜/努比亚菜",
+          priceRange: "150-300 EGP",
+          description: "位于卢克索东岸的屋顶餐厅，拥有俯瞰尼罗河和神庙的绝佳视角。餐厅以埃及和努比亚传统菜肴为主，环境浪漫，是观赏日落的理想地点。",
+          recommendation: "日落时分用餐最美，可以俯瞰卢克索神庙",
+          address: "El-Nil St, Luxor (靠近卢克索神庙)",
+          hours: "12:00 - 23:00",
+          signatureDishes: ["烤茄子沙拉", "努比亚炖羊肉", "烤鱼", "薄荷茶"],
+          tips: "建议18:30左右到达，可以欣赏日落全过程"
+        },
+        {
+          name: "Sunflower Restaurant",
+          cuisine: "国际美食/素食友好",
+          priceRange: "100-250 EGP",
+          description: "卢克索深受背包客欢迎的餐厅，以健康的国际美食和素食选项闻名。餐厅环境轻松休闲，有花园座位，是休息放松的好地方。",
+          recommendation: "素食者和健康饮食者的理想选择",
+          address: "El-Nil St, Luxor (靠近El Souk)",
+          hours: "08:00 - 22:00",
+          signatureDishes: ["素食汉堡", "新鲜沙拉", "水果奶昔", "自制蛋糕"],
+          tips: "早餐也很棒，有西式早餐和埃及早餐可选"
+        },
+        {
+          name: "Tutankhamun Restaurant",
+          cuisine: "埃及菜/国际美食",
+          priceRange: "200-400 EGP",
+          description: "以图坦卡蒙为主题的餐厅，装饰充满古埃及元素，墙上挂满了法老时代的壁画复制品。提供埃及传统菜肴和国际美食，是游客拍照打卡的热门地点。",
+          recommendation: "主题装饰很有特色，适合带小朋友",
+          address: "El-Nil St, Luxor",
+          hours: "11:00 - 23:00",
+          signatureDishes: ["法老拼盘", "烤羊肉", "埃及炖菜", "蜂蜜蛋糕"],
+          tips: "餐厅有时会表演传统埃及舞蹈，可以询问服务员"
         }
       ],
       tips: [
@@ -641,6 +885,29 @@ KV5是帝王谷中最大的陵墓,拥有超过120个墓室,是拉美西斯二世
       location: "卢克索 → 赫尔格达",
       hotel: "Pickalbatros Citadel Resort",
       hotelNote: "备选:Kempinski Hotel Soma Bay | 度假酒店,三餐全包",
+      hotelInfo: {
+        name: "Pickalbatros Citadel Resort",
+        description: "赫尔格达著名的全包式度假酒店，拥有私人海滩和多个泳池。酒店设计灵感来自中世纪城堡，外观宏伟壮观。作为全包式度假村，房费包含三餐、饮料和大部分娱乐活动，让您无需操心用餐问题，专心享受度假时光。",
+        amenities: ["私人海滩", "多个室外泳池", "水上运动中心", "SPA中心", "健身房", "全包式餐饮", "儿童俱乐部", "免费WiFi"],
+        tips: [
+          "全包式意味着三餐、饮料和小吃都包含在房费中",
+          "酒店有多个餐厅，包括主自助餐厅和特色餐厅",
+          "水上运动如浮潜、皮划艇等通常需要额外付费",
+          "建议预订海景房，可以看到红海日出"
+        ],
+        nearbyAttractions: [
+          "酒店私人海滩 - 步行2分钟",
+          "赫尔格达市中心 - 15分钟车程",
+          "吉夫顿岛 - 乘船30分钟",
+          "橙子岛 - 乘船45分钟"
+        ],
+        nearbyRestaurants: [
+          "酒店主餐厅 - 自助餐(含在房费)",
+          "酒店特色餐厅 - 需预订(含在房费)",
+          "酒店海滩酒吧 - 饮料小吃(含在房费)"
+        ],
+        bookingNote: "全包式酒店性价比高，建议选择含三餐的房型"
+      },
       schedule: [
         {
           time: "04:30 - 09:30",
@@ -673,7 +940,41 @@ KV5是帝王谷中最大的陵墓,拥有超过120个墓室,是拉美西斯二世
           activity: "休息放松,沙滩浮潜"
         }
       ],
-      restaurants: [],
+      restaurants: [
+        {
+          name: "Al-Sahaby Lane",
+          cuisine: "埃及菜/努比亚菜",
+          priceRange: "150-300 EGP",
+          description: "位于卢克索东岸的屋顶餐厅，拥有俯瞰尼罗河和神庙的绝佳视角。餐厅以埃及和努比亚传统菜肴为主，环境浪漫，是观赏日落的理想地点。",
+          recommendation: "早餐或早午餐的好选择，出发前享用",
+          address: "El-Nil St, Luxor",
+          hours: "08:00 - 23:00",
+          signatureDishes: ["埃及早餐拼盘", "烤茄子沙拉", "努比亚炖羊肉", "薄荷茶"],
+          tips: "如果早起坐热气球，可以回来这里吃早餐"
+        },
+        {
+          name: "Sunflower Restaurant",
+          cuisine: "国际美食/轻食",
+          priceRange: "100-250 EGP",
+          description: "卢克索深受背包客欢迎的餐厅，以健康的国际美食和素食选项闻名。环境轻松休闲，适合出发前轻松用餐。",
+          recommendation: "健康轻食，出发前吃不会觉得负担",
+          address: "El-Nil St, Luxor",
+          hours: "08:00 - 22:00",
+          signatureDishes: ["新鲜沙拉", "水果奶昔", "三明治", "自制蛋糕"],
+          tips: "可以打包一些零食在路上吃"
+        },
+        {
+          name: "酒店餐厅",
+          cuisine: "国际美食/自助餐",
+          priceRange: "包含在房费中",
+          description: "Pickalbatros Citadel Resort的全包式餐厅，提供丰盛的自助餐，包括埃及菜、国际美食、海鲜和甜点。",
+          recommendation: "抵达后可以直接享用，无需外出找餐厅",
+          address: "Pickalbatros Citadel Resort内",
+          hours: "07:00 - 22:00",
+          signatureDishes: ["自助餐(每日更换)", "海鲜烧烤", "埃及特色菜", "甜点吧"],
+          tips: "全包式酒店，三餐和饮料都包含在房费中"
+        }
+      ],
       tips: [
         {
           category: "交通备选",
@@ -719,7 +1020,52 @@ KV5是帝王谷中最大的陵墓,拥有超过120个墓室,是拉美西斯二世
           }
         }
       ],
-      restaurants: [],
+      restaurants: [
+        {
+          name: "酒店主餐厅",
+          cuisine: "国际自助餐",
+          priceRange: "包含在房费中",
+          description: "Pickalbatros Citadel Resort的主自助餐厅，提供丰盛的早中晚三餐。菜品每日更换，包括埃及传统菜肴、国际美食、新鲜海鲜、烤肉和各式甜点。",
+          recommendation: "早餐的埃及特色菜值得一试",
+          address: "Pickalbatros Citadel Resort主楼",
+          hours: "早餐 07:00-10:00, 午餐 12:30-14:30, 晚餐 18:30-21:30",
+          signatureDishes: ["每日特色烤肉", "新鲜海鲜", "埃及炖菜", "甜点吧", "新鲜水果"],
+          tips: "晚餐建议早点去，可以选到好位置"
+        },
+        {
+          name: "海滩烧烤餐厅",
+          cuisine: "海鲜烧烤",
+          priceRange: "包含在房费中(部分特色菜另计)",
+          description: "位于酒店私人海滩边的露天餐厅，主打新鲜海鲜烧烤。在星空下享用晚餐，听着海浪声，是浪漫的选择。",
+          recommendation: "海鲜烧烤新鲜美味，氛围很棒",
+          address: "Pickalbatros Citadel Resort海滩边",
+          hours: "18:30 - 22:00",
+          signatureDishes: ["烤龙虾", "烤鱼", "烤虾", "海鲜拼盘"],
+          tips: "需要提前预订，尤其是龙虾等高档海鲜"
+        },
+        {
+          name: "泳池酒吧",
+          cuisine: "轻食/饮料",
+          priceRange: "包含在房费中",
+          description: "位于泳池边的休闲酒吧，提供各种鸡尾酒、饮料、冰淇淋和轻食。是游泳间隙休息放松的好去处。",
+          recommendation: "热带鸡尾酒和冰淇淋是夏日必备",
+          address: "Pickalbatros Citadel Resort泳池边",
+          hours: "10:00 - 18:00",
+          signatureDishes: ["热带鸡尾酒", "鲜榨果汁", "冰淇淋", "三明治", "沙拉"],
+          tips: "游泳后可以来这里补充水分和能量"
+        },
+        {
+          name: "Star Fish Restaurant",
+          cuisine: "海鲜/埃及菜",
+          priceRange: "300-600 EGP",
+          description: "赫尔格达市区著名的海鲜餐厅，以新鲜的红海海鲜闻名。如果想换换口味，可以打车来这里用餐。",
+          recommendation: "想外出用餐时的不错选择",
+          address: "Sheraton Road, Hurghada",
+          hours: "12:00 - 23:00",
+          signatureDishes: ["烤石斑鱼", "海鲜汤", "炸鱿鱼", "海鲜拼盘"],
+          tips: "从酒店打车约15分钟，可以让酒店叫车"
+        }
+      ],
       tips: [
         {
           category: "度假",
@@ -781,7 +1127,41 @@ KV5是帝王谷中最大的陵墓,拥有超过120个墓室,是拉美西斯二世
           activity: "起飞返回杭州"
         }
       ],
-      restaurants: [],
+      restaurants: [
+        {
+          name: "酒店午餐",
+          cuisine: "国际自助餐",
+          priceRange: "包含在房费中",
+          description: "在Pickalbatros Citadel Resort享用最后一顿午餐，充分利用全包式酒店的优势。午餐后出发前往机场。",
+          recommendation: "多吃点，路上时间长",
+          address: "Pickalbatros Citadel Resort主餐厅",
+          hours: "12:30 - 14:30",
+          signatureDishes: ["自助午餐", "新鲜水果", "甜点"],
+          tips: "退房前可以先把午餐吃了，行李可以寄存在酒店"
+        },
+        {
+          name: "Naguib Mahfouz Cafe",
+          cuisine: "埃及菜/咖啡",
+          priceRange: "100-200 EGP",
+          description: "如果有时间在哈利利市集逛逛，可以来这家传奇咖啡馆休息。以诺贝尔文学奖得主命名，充满文化气息。",
+          recommendation: "结束埃及之旅的完美地点",
+          address: "Khan el-Khalili, El-Gamaleya, Cairo",
+          hours: "09:00 - 23:00",
+          signatureDishes: ["薄荷茶", "阿拉伯咖啡", "坚果拼盘", "巴克拉瓦"],
+          tips: "买纪念品后可以来这里休息，享受最后的埃及时光"
+        },
+        {
+          name: "机场餐厅",
+          cuisine: "国际快餐",
+          priceRange: "200-400 EGP",
+          description: "开罗机场内的餐厅选择，如果时间紧张可以在机场解决晚餐。",
+          recommendation: "时间紧张时的选择",
+          address: "开罗国际机场T3航站楼",
+          hours: "24小时",
+          signatureDishes: ["汉堡", "三明治", "咖啡", "饮料"],
+          tips: "机场餐厅价格偏高，建议在市集或酒店吃"
+        }
+      ],
       tips: [
         {
           category: "返程交通",
