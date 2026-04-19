@@ -30,18 +30,15 @@ export default function RestaurantCard({ restaurant }: RestaurantCardProps) {
         <p className="text-sm text-magazine-secondary leading-relaxed">{restaurant.description}</p>
         
         {restaurant.signatureDishes && restaurant.signatureDishes.length > 0 && (
-          <div>
-            <p className="text-sm font-medium text-magazine-text mb-1">招牌菜:</p>
-            <div className="flex flex-wrap gap-1">
-              {restaurant.signatureDishes.map((dish, index) => (
-                <span 
-                  key={index} 
-                  className="text-xs bg-magazine-sand/70 text-magazine-text px-2 py-1 rounded"
-                >
-                  {dish}
-                </span>
-              ))}
-            </div>
+          <div className="flex flex-wrap gap-2">
+            {restaurant.signatureDishes.map((dish, index) => (
+              <span 
+                key={index} 
+                className="text-xs bg-magazine-sand text-magazine-text px-3 py-1.5 rounded-full border border-magazine-border/50"
+              >
+                {dish}
+              </span>
+            ))}
           </div>
         )}
         

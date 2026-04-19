@@ -2,6 +2,7 @@ import { itineraryData } from '@/data/itinerary';
 import Timeline from '@/components/Timeline';
 import RestaurantCard from '@/components/RestaurantCard';
 import TipBox from '@/components/TipBox';
+import HotelCard from '@/components/HotelCard';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -50,93 +51,11 @@ export default function DayDetail({ params }: DayDetailProps) {
           <div className="lg:col-span-2 space-y-8">
             {/* Hotel Info */}
             {dayData.hotel && (
-              <div className="magazine-card overflow-hidden">
-                <div className="bg-magazine-sand/50 p-4">
-                  <div className="flex items-start space-x-3">
-                    <span className="text-2xl flex-shrink-0">🏨</span>
-                    <div>
-                      <h3 className="text-xl font-serif text-magazine-text">{dayData.hotel}</h3>
-                      {dayData.hotelNote && (
-                        <p className="text-sm text-magazine-secondary mt-1">{dayData.hotelNote}</p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-                
-                {dayData.hotelInfo && (
-                  <div className="p-4 space-y-4">
-                    {dayData.hotelInfo.description && (
-                      <p className="text-sm text-magazine-secondary leading-relaxed">
-                        {dayData.hotelInfo.description}
-                      </p>
-                    )}
-                    
-                    {dayData.hotelInfo.amenities && dayData.hotelInfo.amenities.length > 0 && (
-                      <div>
-                        <p className="text-sm font-medium text-magazine-text mb-2">设施服务:</p>
-                        <div className="flex flex-wrap gap-1">
-                          {dayData.hotelInfo.amenities.map((amenity, index) => (
-                            <span 
-                              key={index} 
-                              className="text-xs bg-magazine-sand/70 text-magazine-text px-2 py-1 rounded"
-                            >
-                              {amenity}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    
-                    {dayData.hotelInfo.tips && dayData.hotelInfo.tips.length > 0 && (
-                      <div>
-                        <p className="text-sm font-medium text-magazine-text mb-2">住宿Tips:</p>
-                        <ul className="space-y-1">
-                          {dayData.hotelInfo.tips.map((tip, index) => (
-                            <li key={index} className="text-sm text-magazine-secondary flex items-start space-x-2">
-                              <span className="text-magazine-accent flex-shrink-0">•</span>
-                              <span>{tip}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    
-                    {dayData.hotelInfo.nearbyAttractions && dayData.hotelInfo.nearbyAttractions.length > 0 && (
-                      <div>
-                        <p className="text-sm font-medium text-magazine-text mb-2">周边景点:</p>
-                        <ul className="space-y-1">
-                          {dayData.hotelInfo.nearbyAttractions.map((attraction, index) => (
-                            <li key={index} className="text-sm text-magazine-secondary flex items-start space-x-2">
-                              <span className="text-magazine-accent flex-shrink-0">📍</span>
-                              <span>{attraction}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    
-                    {dayData.hotelInfo.nearbyRestaurants && dayData.hotelInfo.nearbyRestaurants.length > 0 && (
-                      <div>
-                        <p className="text-sm font-medium text-magazine-text mb-2">周边餐厅:</p>
-                        <ul className="space-y-1">
-                          {dayData.hotelInfo.nearbyRestaurants.map((restaurant, index) => (
-                            <li key={index} className="text-sm text-magazine-secondary flex items-start space-x-2">
-                              <span className="text-magazine-accent flex-shrink-0">🍽️</span>
-                              <span>{restaurant}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    
-                    {dayData.hotelInfo.bookingNote && (
-                      <p className="text-sm text-magazine-accent bg-magazine-sand/30 p-2 rounded">
-                        <span className="font-medium">预订提示:</span> {dayData.hotelInfo.bookingNote}
-                      </p>
-                    )}
-                  </div>
-                )}
-              </div>
+              <HotelCard 
+                hotel={dayData.hotel} 
+                hotelNote={dayData.hotelNote} 
+                hotelInfo={dayData.hotelInfo} 
+              />
             )}
 
             {/* Timeline */}

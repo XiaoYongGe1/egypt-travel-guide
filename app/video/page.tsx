@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 
 interface Video {
   id: string;
@@ -124,10 +124,52 @@ type CategoryFilter = '全部' | Video['category'];
 export default function VideoPage() {
   const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('全部');
   const [playingVideo, setPlayingVideo] = useState<string | null>(null);
+  const iframeRefs = useRef<Record<string, HTMLIFrameElement | null>>({});
   
   const filteredVideos = selectedCategory === '全部' 
     ? videos 
     : videos.filter(video => video.category === selectedCategory);
+  
+  // 处理视频播放并全屏
+  const handlePlayVideo = useCallback((videoId: string) => {
+    setPlayingVideo(videoId);
+    // 延迟一点等待 iframe 渲染后再请求全屏
+    setTimeout(() => {
+      const iframe = iframeRefs.current[videoId];
+      if (iframe) {
+        const iframeContainer = iframe.parentElement;
+        if (iframeContainer && iframeContainer.requestFullscreen) {
+          iframeContainer.requestFullscreen().catch(() => {
+            // 全屏请求失败时静默处理（iOS Safari 不支持）
+          });
+        }
+        // 尝试通过 iframe 内容请求全屏（对移动端 YouTube 播放器有效）
+        try {
+          const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+          if (iframeDoc) {
+            const videoEl = iframeDoc.querySelector('video');
+            if (videoEl && videoEl.requestFullscreen) {
+              videoEl.requestFullscreen().catch(() => {});
+            }
+          }
+        } catch {
+          // 跨域限制，无法访问 iframe 内容
+        }
+      }
+    }, 300);
+  }, []);
+  
+  // 处理退出全屏时停止播放
+  const handleExitFullscreen = useCallback(() => {
+    if (document.fullscreenElement === null) {
+      setPlayingVideo(null);
+    }
+  }, []);
+  
+  // 监听全屏变化
+  if (typeof document !== 'undefined') {
+    document.addEventListener('fullscreenchange', handleExitFullscreen);
+  }
     
   return (
     <div className="min-h-screen bg-magazine-bg">
@@ -180,14 +222,29 @@ export default function VideoPage() {
               className="magazine-card overflow-hidden group hover:shadow-lg transition-shadow"
             >
               {/* Video Player or Thumbnail */}
-              <div className="relative aspect-video bg-magazine-sand overflow-hidden">
+              <div 
+                className="relative aspect-video bg-magazine-sand overflow-hidden"
+                ref={(el) => {
+                  if (el && playingVideo === video.id) {
+                    // 当播放器激活时，尝试进入全屏
+                    setTimeout(() => {
+                      if (el.requestFullscreen) {
+                        el.requestFullscreen().catch(() => {
+                          // 全屏请求失败时静默处理
+                        });
+                      }
+                    }, 100);
+                  }
+                }}
+              >
                 {playingVideo === video.id ? (
                   // Embedded YouTube Player
                   <iframe
-                    src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1`}
+                    ref={(el) => { iframeRefs.current[video.id] = el; }}
+                    src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&playsinline=0`}
                     title={video.title}
                     className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                     allowFullScreen
                   />
                 ) : (
@@ -203,7 +260,7 @@ export default function VideoPage() {
                     />
                     {/* Play Button Overlay */}
                     <button
-                      onClick={() => setPlayingVideo(video.id)}
+                      onClick={() => handlePlayVideo(video.id)}
                       className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors cursor-pointer"
                     >
                       <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
