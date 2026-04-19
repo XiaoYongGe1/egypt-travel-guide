@@ -61,7 +61,7 @@ export default function HistoryPage() {
                 {period.image && (
                   <div className="relative w-full h-64 md:h-80">
                     <Image
-                      src={period.image}
+                      src={`/egypt-travel-guide${period.image}`}
                       alt={period.name}
                       fill
                       className="object-cover"
